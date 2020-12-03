@@ -1,10 +1,10 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-import chromedriver_binary  # Adds chromedriver binary to path
-from pprint import pprint
 import time
 import smtplib
+import chromedriver_binary  # Adds chromedriver binary to path
+from pprint import pprint
+from selenium import webdriver
 from email.message import EmailMessage
+from selenium.webdriver.chrome.options import Options
 
 #Driver
 url = "https://crackwatch.com/game/assassin-s-creed-valhalla"
