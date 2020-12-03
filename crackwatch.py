@@ -1,5 +1,7 @@
 import time
 import smtplib
+import keyring
+import getpass
 import chromedriver_binary  # Adds chromedriver binary to path
 from pprint import pprint
 from selenium import webdriver
@@ -28,19 +30,24 @@ time.sleep(2)
 server = smtplib.SMTP('smtp.gmail.com',587) #port 465 or 587
 
 #specify sender and receiver for email
-sender = 'devoneloper718@gmail.com'
-receiver = 'rhrimon@gmail.com'
+senderEmail = input('Please enter your email: ')
+senderPassword = getpass.getpass('Please enter your password: ')
+receiver = input('Please enter the email you wish to send the notification to: ')
+
+#use keyring to securely store sender email and password
+keyring.set_password("email", senderEmail, senderPassword)
 
 #cracked and uncracked messages
 uncrackedMsg = 'GAME NOT CRACKED YET'
 crackedMsg = 'GAME CRACKED'
 
+#function to login to gmail server and specify sender and receiver
 def sendEmail(message):
     server.ehlo()
     server.starttls()
     server.ehlo()
-    server.login('devoneloper718@gmail.com','devpassword')
-    server.sendmail('devoneloper718@gmail.com','rhrimon@gmail.com', message)
+    server.login(senderEmail, keyring.get_password("email", senderEmail))
+    server.sendmail(senderEmail, receiver, message)
     server.close() 
 
 #'''get status
