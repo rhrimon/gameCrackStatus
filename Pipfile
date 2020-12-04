@@ -8,6 +8,7 @@ selenium = "*"
 chromedriver-binary = "*"
 bs4 = "*"
 keyring = "*"
+webdriver-manager = "*"
 
 [dev-packages]
 

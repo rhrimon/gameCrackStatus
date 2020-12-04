@@ -6,9 +6,10 @@ import chromedriver_binary  # Adds chromedriver binary to path
 from pprint import pprint
 from selenium import webdriver
 from email.message import EmailMessage
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
-#Driver
+#URL
 url = "https://crackwatch.com/game/assassin-s-creed-valhalla"
 
 #chrome Options
@@ -19,7 +20,7 @@ options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
 
 #go to page 
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 driver.get(url)
 time.sleep(10)
 #click initial pop up
