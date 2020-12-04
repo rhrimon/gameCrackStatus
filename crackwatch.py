@@ -49,13 +49,14 @@ def sendEmail(message):
     server.login(senderEmail, keyring.get_password("email", senderEmail))
     server.sendmail(senderEmail, receiver, message)
     server.close() 
+    print(f"Notification successfully sent from {senderEmail} to {receiver}")
 
 #'''get status
 # if status is uncracked send email saying uncracked
 # else send email saying cracked'''
 status = driver.find_element_by_class_name('status-bottom')
 if status.text == 'UNCRACKED':
-    sendEmail(uncrackedMsg) 
+    sendEmail(uncrackedMsg)
 else:
     sendEmail(crackedMsg)        
 
