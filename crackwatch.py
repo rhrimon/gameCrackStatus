@@ -39,8 +39,8 @@ receiver = input('Please enter the email you wish to send the notification to: '
 keyring.set_password("email", senderEmail, senderPassword)
 
 #cracked and uncracked messages
-uncrackedMsg = 'GAME NOT CRACKED YET'
-crackedMsg = 'GAME CRACKED'
+uncrackedMsg = 'ASSASSINS CREED VALHALLA IS NOT CRACKED YET'
+crackedMsg = 'ASSASSINS CREED VALHALLA IS CRACKED'
 
 #function to login to gmail server and specify sender and receiver
 def sendEmail(message):
