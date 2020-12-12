@@ -9,6 +9,7 @@ chromedriver-binary = "*"
 bs4 = "*"
 keyring = "*"
 webdriver-manager = "*"
+discord = "*"
 
 [dev-packages]
 
